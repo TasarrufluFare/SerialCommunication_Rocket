@@ -1,0 +1,7 @@
+C:\Users\Nezih\source\repos\RoketArayuz2\RoketArayuz2\obj\Debug\net5.0-windows\RoketArayuz2.csproj.AssemblyReference.cache
+C:\Users\Nezih\source\repos\RoketArayuz2\RoketArayuz2\obj\Debug\net5.0-windows\RoketArayuz2.Form1.resources
+C:\Users\Nezih\source\repos\RoketArayuz2\RoketArayuz2\obj\Debug\net5.0-windows\RoketArayuz2.csproj.GenerateResource.cache
+C:\Users\Nezih\source\repos\RoketArayuz2\RoketArayuz2\obj\Debug\net5.0-windows\RoketArayuz2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nezih\source\repos\RoketArayuz2\RoketArayuz2\obj\Debug\net5.0-windows\RoketArayuz2.AssemblyInfoInputs.cache
+C:\Users\Nezih\source\repos\RoketArayuz2\RoketArayuz2\obj\Debug\net5.0-windows\RoketArayuz2.AssemblyInfo.cs
+C:\Users\Nezih\source\repos\RoketArayuz2\RoketArayuz2\obj\Debug\net5.0-windows\RoketArayuz2.csproj.CoreCompileInputs.cache
