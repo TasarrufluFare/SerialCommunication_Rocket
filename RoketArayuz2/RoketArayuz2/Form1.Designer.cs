@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel_Connections = new System.Windows.Forms.Panel();
+            this.comboBox_Parametre4 = new System.Windows.Forms.ComboBox();
             this.comboBox_Parametre3 = new System.Windows.Forms.ComboBox();
             this.comboBox_Parametre2 = new System.Windows.Forms.ComboBox();
             this.label_Parametre4 = new System.Windows.Forms.Label();
@@ -75,15 +76,27 @@
             this.button_turnOn_Xaxis = new System.Windows.Forms.Button();
             this.timer1_GLControl_X = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.comboBox_Parametre4 = new System.Windows.Forms.ComboBox();
+            this.panel_graphs = new System.Windows.Forms.Panel();
+            this.button_writeToExcel = new System.Windows.Forms.Button();
+            this.button_draw_graph = new System.Windows.Forms.Button();
+            this.groupBox_grafik_ozelligi = new System.Windows.Forms.GroupBox();
+            this.checkBox_Sicaklik = new System.Windows.Forms.CheckBox();
+            this.checkBox_Yukseklik = new System.Windows.Forms.CheckBox();
+            this.checkBox_Basinc = new System.Windows.Forms.CheckBox();
+            this.checkBox_Ivme = new System.Windows.Forms.CheckBox();
+            this.checkBox_Surat = new System.Windows.Forms.CheckBox();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.panel_Connections.SuspendLayout();
             this.panel_Error_msgs.SuspendLayout();
             this.panel_Sensor_Infos.SuspendLayout();
             this.panel_Glcontrol.SuspendLayout();
+            this.panel_graphs.SuspendLayout();
+            this.groupBox_grafik_ozelligi.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_Connections
             // 
+            this.panel_Connections.AutoSize = true;
             this.panel_Connections.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_Connections.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel_Connections.Controls.Add(this.comboBox_Parametre4);
@@ -104,8 +117,21 @@
             this.panel_Connections.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel_Connections.Location = new System.Drawing.Point(12, 12);
             this.panel_Connections.Name = "panel_Connections";
-            this.panel_Connections.Size = new System.Drawing.Size(404, 433);
+            this.panel_Connections.Size = new System.Drawing.Size(395, 419);
             this.panel_Connections.TabIndex = 0;
+            // 
+            // comboBox_Parametre4
+            // 
+            this.comboBox_Parametre4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Parametre4.FormattingEnabled = true;
+            this.comboBox_Parametre4.Items.AddRange(new object[] {
+            "None",
+            "Odd",
+            "Even"});
+            this.comboBox_Parametre4.Location = new System.Drawing.Point(125, 178);
+            this.comboBox_Parametre4.Name = "comboBox_Parametre4";
+            this.comboBox_Parametre4.Size = new System.Drawing.Size(172, 23);
+            this.comboBox_Parametre4.TabIndex = 18;
             // 
             // comboBox_Parametre3
             // 
@@ -145,11 +171,13 @@
             // 
             // listBox_port_logs
             // 
+            this.listBox_port_logs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBox_port_logs.FormattingEnabled = true;
+            this.listBox_port_logs.HorizontalScrollbar = true;
             this.listBox_port_logs.ItemHeight = 15;
             this.listBox_port_logs.Location = new System.Drawing.Point(8, 260);
             this.listBox_port_logs.Name = "listBox_port_logs";
-            this.listBox_port_logs.Size = new System.Drawing.Size(398, 124);
+            this.listBox_port_logs.Size = new System.Drawing.Size(384, 124);
             this.listBox_port_logs.TabIndex = 13;
             // 
             // button_port_logs_save
@@ -205,7 +233,7 @@
             // 
             this.button_refresh_ports.BackColor = System.Drawing.SystemColors.Desktop;
             this.button_refresh_ports.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button_refresh_ports.Location = new System.Drawing.Point(268, 27);
+            this.button_refresh_ports.Location = new System.Drawing.Point(259, 31);
             this.button_refresh_ports.Name = "button_refresh_ports";
             this.button_refresh_ports.Size = new System.Drawing.Size(133, 23);
             this.button_refresh_ports.TabIndex = 5;
@@ -232,14 +260,14 @@
             "Deneme-2"});
             this.comboBox_ports.Location = new System.Drawing.Point(3, 61);
             this.comboBox_ports.Name = "comboBox_ports";
-            this.comboBox_ports.Size = new System.Drawing.Size(398, 23);
+            this.comboBox_ports.Size = new System.Drawing.Size(389, 23);
             this.comboBox_ports.TabIndex = 3;
             // 
             // button_port_dc
             // 
             this.button_port_dc.BackColor = System.Drawing.SystemColors.Desktop;
             this.button_port_dc.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button_port_dc.Location = new System.Drawing.Point(273, 231);
+            this.button_port_dc.Location = new System.Drawing.Point(259, 230);
             this.button_port_dc.Name = "button_port_dc";
             this.button_port_dc.Size = new System.Drawing.Size(133, 23);
             this.button_port_dc.TabIndex = 2;
@@ -261,6 +289,7 @@
             // 
             // panel_Error_msgs
             // 
+            this.panel_Error_msgs.AutoSize = true;
             this.panel_Error_msgs.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel_Error_msgs.Controls.Add(this.listBox_error_msgs);
             this.panel_Error_msgs.Controls.Add(this.textBox_missing_pckt_count);
@@ -269,7 +298,7 @@
             this.panel_Error_msgs.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.panel_Error_msgs.Location = new System.Drawing.Point(12, 451);
             this.panel_Error_msgs.Name = "panel_Error_msgs";
-            this.panel_Error_msgs.Size = new System.Drawing.Size(404, 345);
+            this.panel_Error_msgs.Size = new System.Drawing.Size(404, 419);
             this.panel_Error_msgs.TabIndex = 1;
             // 
             // listBox_error_msgs
@@ -277,9 +306,9 @@
             this.listBox_error_msgs.FormattingEnabled = true;
             this.listBox_error_msgs.HorizontalScrollbar = true;
             this.listBox_error_msgs.ItemHeight = 18;
-            this.listBox_error_msgs.Location = new System.Drawing.Point(3, 50);
+            this.listBox_error_msgs.Location = new System.Drawing.Point(8, 50);
             this.listBox_error_msgs.Name = "listBox_error_msgs";
-            this.listBox_error_msgs.Size = new System.Drawing.Size(398, 220);
+            this.listBox_error_msgs.Size = new System.Drawing.Size(384, 220);
             this.listBox_error_msgs.TabIndex = 4;
             // 
             // textBox_missing_pckt_count
@@ -312,6 +341,7 @@
             // 
             // panel_Sensor_Infos
             // 
+            this.panel_Sensor_Infos.AutoSize = true;
             this.panel_Sensor_Infos.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel_Sensor_Infos.Controls.Add(this.textBox_Sicaklik_Degeri);
             this.panel_Sensor_Infos.Controls.Add(this.textBox_Yukseklik_Degeri);
@@ -544,10 +574,10 @@
             // glControl1
             // 
             this.glControl1.BackColor = System.Drawing.Color.Black;
-            this.glControl1.Location = new System.Drawing.Point(41, 18);
+            this.glControl1.Location = new System.Drawing.Point(41, 3);
             this.glControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.glControl1.Name = "glControl1";
-            this.glControl1.Size = new System.Drawing.Size(530, 496);
+            this.glControl1.Size = new System.Drawing.Size(403, 384);
             this.glControl1.TabIndex = 0;
             this.glControl1.VSync = true;
             this.glControl1.Load += new System.EventHandler(this.glControl1_Load);
@@ -555,19 +585,20 @@
             // 
             // panel_Glcontrol
             // 
+            this.panel_Glcontrol.AutoSize = true;
             this.panel_Glcontrol.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel_Glcontrol.Controls.Add(this.button_turnOn_Xaxis);
             this.panel_Glcontrol.Controls.Add(this.glControl1);
             this.panel_Glcontrol.Location = new System.Drawing.Point(969, 11);
             this.panel_Glcontrol.Name = "panel_Glcontrol";
-            this.panel_Glcontrol.Size = new System.Drawing.Size(653, 785);
+            this.panel_Glcontrol.Size = new System.Drawing.Size(653, 390);
             this.panel_Glcontrol.TabIndex = 3;
             // 
             // button_turnOn_Xaxis
             // 
-            this.button_turnOn_Xaxis.Location = new System.Drawing.Point(41, 520);
+            this.button_turnOn_Xaxis.Location = new System.Drawing.Point(451, 32);
             this.button_turnOn_Xaxis.Name = "button_turnOn_Xaxis";
-            this.button_turnOn_Xaxis.Size = new System.Drawing.Size(530, 23);
+            this.button_turnOn_Xaxis.Size = new System.Drawing.Size(198, 23);
             this.button_turnOn_Xaxis.TabIndex = 1;
             this.button_turnOn_Xaxis.Text = "X Eksenine Göre Döndür";
             this.button_turnOn_Xaxis.UseVisualStyleBackColor = true;
@@ -577,30 +608,135 @@
             // 
             this.timer1_GLControl_X.Tick += new System.EventHandler(this.timer1_GLControl_X_Tick);
             // 
-            // comboBox_Parametre4
+            // panel_graphs
             // 
-            this.comboBox_Parametre4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_Parametre4.FormattingEnabled = true;
-            this.comboBox_Parametre4.Items.AddRange(new object[] {
-            "None",
-            "Odd",
-            "Even"});
-            this.comboBox_Parametre4.Location = new System.Drawing.Point(125, 178);
-            this.comboBox_Parametre4.Name = "comboBox_Parametre4";
-            this.comboBox_Parametre4.Size = new System.Drawing.Size(172, 23);
-            this.comboBox_Parametre4.TabIndex = 18;
+            this.panel_graphs.AutoSize = true;
+            this.panel_graphs.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel_graphs.Controls.Add(this.button_writeToExcel);
+            this.panel_graphs.Controls.Add(this.button_draw_graph);
+            this.panel_graphs.Controls.Add(this.groupBox_grafik_ozelligi);
+            this.panel_graphs.Controls.Add(this.zedGraphControl1);
+            this.panel_graphs.Location = new System.Drawing.Point(424, 412);
+            this.panel_graphs.Name = "panel_graphs";
+            this.panel_graphs.Size = new System.Drawing.Size(1198, 458);
+            this.panel_graphs.TabIndex = 4;
+            // 
+            // button_writeToExcel
+            // 
+            this.button_writeToExcel.BackColor = System.Drawing.SystemColors.Desktop;
+            this.button_writeToExcel.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button_writeToExcel.Location = new System.Drawing.Point(246, 16);
+            this.button_writeToExcel.Name = "button_writeToExcel";
+            this.button_writeToExcel.Size = new System.Drawing.Size(145, 82);
+            this.button_writeToExcel.TabIndex = 8;
+            this.button_writeToExcel.Text = "Verileri Veri Tabanına Kaydet";
+            this.button_writeToExcel.UseVisualStyleBackColor = false;
+            this.button_writeToExcel.Click += new System.EventHandler(this.button_writeToExcel_Click);
+            // 
+            // button_draw_graph
+            // 
+            this.button_draw_graph.Location = new System.Drawing.Point(428, 36);
+            this.button_draw_graph.Name = "button_draw_graph";
+            this.button_draw_graph.Size = new System.Drawing.Size(111, 23);
+            this.button_draw_graph.TabIndex = 7;
+            this.button_draw_graph.Text = "button_draw_graph";
+            this.button_draw_graph.UseVisualStyleBackColor = true;
+            this.button_draw_graph.Visible = false;
+            this.button_draw_graph.Click += new System.EventHandler(this.button_draw_graph_Click);
+            // 
+            // groupBox_grafik_ozelligi
+            // 
+            this.groupBox_grafik_ozelligi.Controls.Add(this.checkBox_Sicaklik);
+            this.groupBox_grafik_ozelligi.Controls.Add(this.checkBox_Yukseklik);
+            this.groupBox_grafik_ozelligi.Controls.Add(this.checkBox_Basinc);
+            this.groupBox_grafik_ozelligi.Controls.Add(this.checkBox_Ivme);
+            this.groupBox_grafik_ozelligi.Controls.Add(this.checkBox_Surat);
+            this.groupBox_grafik_ozelligi.Location = new System.Drawing.Point(4, 3);
+            this.groupBox_grafik_ozelligi.Name = "groupBox_grafik_ozelligi";
+            this.groupBox_grafik_ozelligi.Size = new System.Drawing.Size(236, 100);
+            this.groupBox_grafik_ozelligi.TabIndex = 6;
+            this.groupBox_grafik_ozelligi.TabStop = false;
+            this.groupBox_grafik_ozelligi.Text = "Grafik Tipi - Y Ekseni";
+            // 
+            // checkBox_Sicaklik
+            // 
+            this.checkBox_Sicaklik.AutoSize = true;
+            this.checkBox_Sicaklik.Location = new System.Drawing.Point(113, 47);
+            this.checkBox_Sicaklik.Name = "checkBox_Sicaklik";
+            this.checkBox_Sicaklik.Size = new System.Drawing.Size(103, 19);
+            this.checkBox_Sicaklik.TabIndex = 4;
+            this.checkBox_Sicaklik.Text = "Sıcaklık Grafiği";
+            this.checkBox_Sicaklik.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Yukseklik
+            // 
+            this.checkBox_Yukseklik.AutoSize = true;
+            this.checkBox_Yukseklik.Location = new System.Drawing.Point(113, 22);
+            this.checkBox_Yukseklik.Name = "checkBox_Yukseklik";
+            this.checkBox_Yukseklik.Size = new System.Drawing.Size(113, 19);
+            this.checkBox_Yukseklik.TabIndex = 3;
+            this.checkBox_Yukseklik.Text = "Yükseklik Grafiği";
+            this.checkBox_Yukseklik.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Basinc
+            // 
+            this.checkBox_Basinc.AutoSize = true;
+            this.checkBox_Basinc.Location = new System.Drawing.Point(8, 72);
+            this.checkBox_Basinc.Name = "checkBox_Basinc";
+            this.checkBox_Basinc.Size = new System.Drawing.Size(98, 19);
+            this.checkBox_Basinc.TabIndex = 2;
+            this.checkBox_Basinc.Text = "Basınç Grafiği";
+            this.checkBox_Basinc.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Ivme
+            // 
+            this.checkBox_Ivme.AutoSize = true;
+            this.checkBox_Ivme.Location = new System.Drawing.Point(8, 47);
+            this.checkBox_Ivme.Name = "checkBox_Ivme";
+            this.checkBox_Ivme.Size = new System.Drawing.Size(90, 19);
+            this.checkBox_Ivme.TabIndex = 1;
+            this.checkBox_Ivme.Text = "İvme Grafiği";
+            this.checkBox_Ivme.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Surat
+            // 
+            this.checkBox_Surat.AutoSize = true;
+            this.checkBox_Surat.Location = new System.Drawing.Point(8, 22);
+            this.checkBox_Surat.Name = "checkBox_Surat";
+            this.checkBox_Surat.Size = new System.Drawing.Size(91, 19);
+            this.checkBox_Surat.TabIndex = 0;
+            this.checkBox_Surat.Text = "Sürat Grafiği";
+            this.checkBox_Surat.UseVisualStyleBackColor = true;
+            // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.Location = new System.Drawing.Point(4, 104);
+            this.zedGraphControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.ScrollGrace = 0D;
+            this.zedGraphControl1.ScrollMaxX = 0D;
+            this.zedGraphControl1.ScrollMaxY = 0D;
+            this.zedGraphControl1.ScrollMaxY2 = 0D;
+            this.zedGraphControl1.ScrollMinX = 0D;
+            this.zedGraphControl1.ScrollMinY = 0D;
+            this.zedGraphControl1.ScrollMinY2 = 0D;
+            this.zedGraphControl1.Size = new System.Drawing.Size(1190, 351);
+            this.zedGraphControl1.TabIndex = 0;
+            this.zedGraphControl1.UseExtendedPrintDialog = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1634, 806);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.panel_graphs);
             this.Controls.Add(this.panel_Glcontrol);
             this.Controls.Add(this.panel_Sensor_Infos);
             this.Controls.Add(this.panel_Error_msgs);
             this.Controls.Add(this.panel_Connections);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Vega Roket Arayüzü";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_Connections.ResumeLayout(false);
             this.panel_Connections.PerformLayout();
@@ -609,7 +745,11 @@
             this.panel_Sensor_Infos.ResumeLayout(false);
             this.panel_Sensor_Infos.PerformLayout();
             this.panel_Glcontrol.ResumeLayout(false);
+            this.panel_graphs.ResumeLayout(false);
+            this.groupBox_grafik_ozelligi.ResumeLayout(false);
+            this.groupBox_grafik_ozelligi.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -662,5 +802,15 @@
         private ComboBox comboBox_Parametre2;
         private ComboBox comboBox_Parametre3;
         private ComboBox comboBox_Parametre4;
+        private Panel panel_graphs;
+        private ZedGraph.ZedGraphControl zedGraphControl1;
+        private GroupBox groupBox_grafik_ozelligi;
+        private Button button_draw_graph;
+        private CheckBox checkBox_Sicaklik;
+        private CheckBox checkBox_Yukseklik;
+        private CheckBox checkBox_Basinc;
+        private CheckBox checkBox_Ivme;
+        private CheckBox checkBox_Surat;
+        private Button button_writeToExcel;
     }
 }

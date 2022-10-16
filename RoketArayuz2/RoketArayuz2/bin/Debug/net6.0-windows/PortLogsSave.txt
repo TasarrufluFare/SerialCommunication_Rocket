@@ -1,3 +1,10 @@
-System.Windows.Forms.RichTextBox, Text: DEneme
-DEneme
-DEneme
+COM2'e bağlandı.
+MotorKonumu1:ABC
+MotorKonumu2:
+MotorKonumu3:ABC3
+S?rat:10m/s
+?vme:15m/s^2
+Bas?n?:10Bar
+Y?kseklik:700Metre
+S?cakl?k:70F
+
