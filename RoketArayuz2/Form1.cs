@@ -1,4 +1,5 @@
-﻿using OpenTK;
+//Creator: Tasarruflu Fare - https://github.com/TasarrufluFare?tab=repositories
+using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using ZedGraph;
 using System;
