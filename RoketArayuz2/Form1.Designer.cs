@@ -77,7 +77,8 @@
             this.timer1_GLControl_X = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel_graphs = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_writeToExcel = new System.Windows.Forms.Button();
+            this.button_draw_graph = new System.Windows.Forms.Button();
             this.groupBox_grafik_ozelligi = new System.Windows.Forms.GroupBox();
             this.checkBox_Sicaklik = new System.Windows.Forms.CheckBox();
             this.checkBox_Yukseklik = new System.Windows.Forms.CheckBox();
@@ -95,6 +96,7 @@
             // 
             // panel_Connections
             // 
+            this.panel_Connections.AutoSize = true;
             this.panel_Connections.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_Connections.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel_Connections.Controls.Add(this.comboBox_Parametre4);
@@ -115,12 +117,13 @@
             this.panel_Connections.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel_Connections.Location = new System.Drawing.Point(12, 12);
             this.panel_Connections.Name = "panel_Connections";
-            this.panel_Connections.Size = new System.Drawing.Size(404, 433);
+            this.panel_Connections.Size = new System.Drawing.Size(395, 419);
             this.panel_Connections.TabIndex = 0;
             // 
             // comboBox_Parametre4
             // 
             this.comboBox_Parametre4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Parametre4.Enabled = false;
             this.comboBox_Parametre4.FormattingEnabled = true;
             this.comboBox_Parametre4.Items.AddRange(new object[] {
             "None",
@@ -134,6 +137,7 @@
             // comboBox_Parametre3
             // 
             this.comboBox_Parametre3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Parametre3.Enabled = false;
             this.comboBox_Parametre3.FormattingEnabled = true;
             this.comboBox_Parametre3.Items.AddRange(new object[] {
             "One",
@@ -146,6 +150,7 @@
             // comboBox_Parametre2
             // 
             this.comboBox_Parametre2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Parametre2.Enabled = false;
             this.comboBox_Parametre2.FormattingEnabled = true;
             this.comboBox_Parametre2.Items.AddRange(new object[] {
             "5",
@@ -163,14 +168,15 @@
             this.label_Parametre4.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label_Parametre4.Location = new System.Drawing.Point(9, 183);
             this.label_Parametre4.Name = "label_Parametre4";
-            this.label_Parametre4.Size = new System.Drawing.Size(104, 18);
+            this.label_Parametre4.Size = new System.Drawing.Size(61, 18);
             this.label_Parametre4.TabIndex = 14;
-            this.label_Parametre4.Text = "Parametre4 :";
+            this.label_Parametre4.Text = "Parity :";
             // 
             // listBox_port_logs
             // 
             this.listBox_port_logs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBox_port_logs.FormattingEnabled = true;
+            this.listBox_port_logs.HorizontalScrollbar = true;
             this.listBox_port_logs.ItemHeight = 15;
             this.listBox_port_logs.Location = new System.Drawing.Point(8, 260);
             this.listBox_port_logs.Name = "listBox_port_logs";
@@ -191,10 +197,12 @@
             // 
             // textBox_Parametre1
             // 
+            this.textBox_Parametre1.Enabled = false;
             this.textBox_Parametre1.Location = new System.Drawing.Point(125, 90);
             this.textBox_Parametre1.Name = "textBox_Parametre1";
             this.textBox_Parametre1.Size = new System.Drawing.Size(172, 23);
             this.textBox_Parametre1.TabIndex = 9;
+            this.textBox_Parametre1.Text = "9600";
             // 
             // label_Parametre3
             // 
@@ -202,9 +210,9 @@
             this.label_Parametre3.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label_Parametre3.Location = new System.Drawing.Point(9, 153);
             this.label_Parametre3.Name = "label_Parametre3";
-            this.label_Parametre3.Size = new System.Drawing.Size(104, 18);
+            this.label_Parametre3.Size = new System.Drawing.Size(85, 18);
             this.label_Parametre3.TabIndex = 8;
-            this.label_Parametre3.Text = "Parametre3 :";
+            this.label_Parametre3.Text = "Stop Bits :";
             // 
             // label_Parametre2
             // 
@@ -212,9 +220,9 @@
             this.label_Parametre2.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label_Parametre2.Location = new System.Drawing.Point(9, 124);
             this.label_Parametre2.Name = "label_Parametre2";
-            this.label_Parametre2.Size = new System.Drawing.Size(104, 18);
+            this.label_Parametre2.Size = new System.Drawing.Size(85, 18);
             this.label_Parametre2.TabIndex = 7;
-            this.label_Parametre2.Text = "Parametre2 :";
+            this.label_Parametre2.Text = "Data Bits :";
             // 
             // label_Parametre1
             // 
@@ -222,9 +230,9 @@
             this.label_Parametre1.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label_Parametre1.Location = new System.Drawing.Point(9, 95);
             this.label_Parametre1.Name = "label_Parametre1";
-            this.label_Parametre1.Size = new System.Drawing.Size(104, 18);
+            this.label_Parametre1.Size = new System.Drawing.Size(95, 18);
             this.label_Parametre1.TabIndex = 6;
-            this.label_Parametre1.Text = "Parametre1 :";
+            this.label_Parametre1.Text = "Baud Rate :";
             // 
             // button_refresh_ports
             // 
@@ -286,6 +294,7 @@
             // 
             // panel_Error_msgs
             // 
+            this.panel_Error_msgs.AutoSize = true;
             this.panel_Error_msgs.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel_Error_msgs.Controls.Add(this.listBox_error_msgs);
             this.panel_Error_msgs.Controls.Add(this.textBox_missing_pckt_count);
@@ -337,6 +346,7 @@
             // 
             // panel_Sensor_Infos
             // 
+            this.panel_Sensor_Infos.AutoSize = true;
             this.panel_Sensor_Infos.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel_Sensor_Infos.Controls.Add(this.textBox_Sicaklik_Degeri);
             this.panel_Sensor_Infos.Controls.Add(this.textBox_Yukseklik_Degeri);
@@ -569,7 +579,7 @@
             // glControl1
             // 
             this.glControl1.BackColor = System.Drawing.Color.Black;
-            this.glControl1.Location = new System.Drawing.Point(41, 3);
+            this.glControl1.Location = new System.Drawing.Point(123, 3);
             this.glControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.glControl1.Name = "glControl1";
             this.glControl1.Size = new System.Drawing.Size(403, 384);
@@ -580,6 +590,7 @@
             // 
             // panel_Glcontrol
             // 
+            this.panel_Glcontrol.AutoSize = true;
             this.panel_Glcontrol.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel_Glcontrol.Controls.Add(this.button_turnOn_Xaxis);
             this.panel_Glcontrol.Controls.Add(this.glControl1);
@@ -596,6 +607,7 @@
             this.button_turnOn_Xaxis.TabIndex = 1;
             this.button_turnOn_Xaxis.Text = "X Eksenine Göre Döndür";
             this.button_turnOn_Xaxis.UseVisualStyleBackColor = true;
+            this.button_turnOn_Xaxis.Visible = false;
             this.button_turnOn_Xaxis.Click += new System.EventHandler(this.button_turnOn_Xaxis_Click);
             // 
             // timer1_GLControl_X
@@ -604,8 +616,10 @@
             // 
             // panel_graphs
             // 
+            this.panel_graphs.AutoSize = true;
             this.panel_graphs.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel_graphs.Controls.Add(this.button1);
+            this.panel_graphs.Controls.Add(this.button_writeToExcel);
+            this.panel_graphs.Controls.Add(this.button_draw_graph);
             this.panel_graphs.Controls.Add(this.groupBox_grafik_ozelligi);
             this.panel_graphs.Controls.Add(this.zedGraphControl1);
             this.panel_graphs.Location = new System.Drawing.Point(424, 412);
@@ -613,15 +627,28 @@
             this.panel_graphs.Size = new System.Drawing.Size(1198, 458);
             this.panel_graphs.TabIndex = 4;
             // 
-            // button1
+            // button_writeToExcel
             // 
-            this.button1.Location = new System.Drawing.Point(428, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_writeToExcel.BackColor = System.Drawing.SystemColors.Desktop;
+            this.button_writeToExcel.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button_writeToExcel.Location = new System.Drawing.Point(246, 16);
+            this.button_writeToExcel.Name = "button_writeToExcel";
+            this.button_writeToExcel.Size = new System.Drawing.Size(145, 82);
+            this.button_writeToExcel.TabIndex = 8;
+            this.button_writeToExcel.Text = "Verileri Veri Tabanına Kaydet";
+            this.button_writeToExcel.UseVisualStyleBackColor = false;
+            this.button_writeToExcel.Click += new System.EventHandler(this.button_writeToExcel_Click);
+            // 
+            // button_draw_graph
+            // 
+            this.button_draw_graph.Location = new System.Drawing.Point(428, 36);
+            this.button_draw_graph.Name = "button_draw_graph";
+            this.button_draw_graph.Size = new System.Drawing.Size(111, 23);
+            this.button_draw_graph.TabIndex = 7;
+            this.button_draw_graph.Text = "button_draw_graph";
+            this.button_draw_graph.UseVisualStyleBackColor = true;
+            this.button_draw_graph.Visible = false;
+            this.button_draw_graph.Click += new System.EventHandler(this.button_draw_graph_Click);
             // 
             // groupBox_grafik_ozelligi
             // 
@@ -707,14 +734,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1634, 898);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel_graphs);
             this.Controls.Add(this.panel_Glcontrol);
             this.Controls.Add(this.panel_Sensor_Infos);
             this.Controls.Add(this.panel_Error_msgs);
             this.Controls.Add(this.panel_Connections);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Vega Roket Arayüzü";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_Connections.ResumeLayout(false);
             this.panel_Connections.PerformLayout();
@@ -727,6 +755,7 @@
             this.groupBox_grafik_ozelligi.ResumeLayout(false);
             this.groupBox_grafik_ozelligi.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -782,11 +811,12 @@
         private Panel panel_graphs;
         private ZedGraph.ZedGraphControl zedGraphControl1;
         private GroupBox groupBox_grafik_ozelligi;
-        private Button button1;
+        private Button button_draw_graph;
         private CheckBox checkBox_Sicaklik;
         private CheckBox checkBox_Yukseklik;
         private CheckBox checkBox_Basinc;
         private CheckBox checkBox_Ivme;
         private CheckBox checkBox_Surat;
+        private Button button_writeToExcel;
     }
 }
